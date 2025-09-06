@@ -11,8 +11,8 @@ const specialistRoutes = require("./Routes/HealthSpecialistRoute");
 const medicineCompanyRoutes = require("./Routes/H_MedicineCompanyRoute");
 const mediStoreRoutes = require("./Routes/H_mediStoreRoute");
 const plantPathologistRoutes = require("./Routes/H_PlantPathologistRoute");
-const fertiliserRoutes = require("./Routes/H_FertiliserRoute"); // Fertiliser CRUD
-const fertiliserCompanyRoutes = require("./Routes/fertiliserCompanyRoutes"); // Fertiliser Companies
+const fertiliserRoutes = require("./Routes/H_FertiliserRoute"); 
+const fertiliserCompanyRoutes = require("./Routes/fertiliserCompanyRoutes"); 
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -46,8 +46,8 @@ app.use("/api/specialists", specialistRoutes);
 app.use("/api/medicine-companies", medicineCompanyRoutes);
 app.use("/api/medistore", mediStoreRoutes);
 app.use("/api/plant-pathologists", plantPathologistRoutes);
-app.use("/api/fertilisers", fertiliserRoutes); // Fertiliser CRUD
-app.use("/api/fertiliser-companies", fertiliserCompanyRoutes); // Fertiliser Companies
+app.use("/api/fertilisers", fertiliserRoutes); 
+app.use("/api/fertiliser-companies", fertiliserCompanyRoutes); 
 
 // Start server
 app.listen(PORT, () =>
