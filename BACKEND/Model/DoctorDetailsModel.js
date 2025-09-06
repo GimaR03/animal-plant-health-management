@@ -10,7 +10,7 @@ const DoctorSchema = new mongoose.Schema({
   yearsOfExperience: { type: Number, required: true },
   dateOfBirth: { type: Date },
   gender: { type: String },
-  profilePhoto: { type: String }, // store filename
+  profilePhoto: { type: String }, 
 }, { timestamps: true });
 
 module.exports = mongoose.model("Doctor", DoctorSchema);
