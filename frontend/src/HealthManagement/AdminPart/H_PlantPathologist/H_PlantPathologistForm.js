@@ -68,6 +68,7 @@ const H_PlantPathologistForm = ({ id, onSuccess, onCancel }) => {
     }
   };
 
+  //planat pathologistic form
   return (
     <div className="form-container">
       <h3>{id ? "Edit Plant Pathologist" : "Add New Plant Pathologist"}</h3>
