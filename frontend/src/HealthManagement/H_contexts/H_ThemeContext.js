@@ -14,7 +14,7 @@ export const ThemeProvider = ({ children }) => {
   );
 };
 
-// ✅ Custom hook
+// Custom hook
 export const useTheme = () => {
   const context = useContext(ThemeContext);
   if (!context) throw new Error('useTheme must be used inside ThemeProvider');
