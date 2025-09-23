@@ -1,5 +1,5 @@
 import React from "react";
-import DoctorNavBar from "../../DoctorPart/DoctorNavBar";
+import DoctorNavBar from "../../DoctorPart/DoctorNavBar.js";
 
 function H_SpecialistDetails() {
   return (
