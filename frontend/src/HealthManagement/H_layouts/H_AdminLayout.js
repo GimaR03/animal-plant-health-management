@@ -1,25 +1,44 @@
 import React from "react";
-import NavBar from "../NavBar/NavBar";
-import H_TopNavbar from "../H_TopNavbar/H_TopNavbar";
+import { Outlet } from "react-router-dom";
+import NavBar from "../Sidebar/Sidebar.js";
+import H_TopNavbar from "../H_TopNavbar/H_TopNavbar.js";
+import { useTheme } from '../H_contexts/H_ThemeContext.js';
 
-const AdminLayout = ({ children }) => {
+const SIDEBAR_COLLAPSED_WIDTH = 80;   // px, matches w-20
+const SIDEBAR_EXPANDED_WIDTH = 256;   // px, matches w-64
+const TOPBAR_HEIGHT = 64;             // px, matches h-16
+
+const AdminLayout = () => {
+  // Use the theme context for sidebar and dark mode state
+  const { darkMode, toggleTheme, sidebarOpen, toggleSidebar } = useTheme();
+
   return (
-    <div className="flex min-h-screen">
-      {/* Sidebar */}
-      <div className="w-64 bg-gray-100 fixed h-full">
-        <NavBar />
-      </div>
+    <div className={`min-h-screen ${darkMode ? "bg-gray-900" : "bg-gray-50"}`}>
+      {/* Fixed Sidebar */}
+      <NavBar 
+        sidebarOpen={sidebarOpen}  // Changed from isCollapsed to sidebarOpen
+        darkMode={darkMode}
+        toggleSidebar={toggleSidebar}  // Added toggleSidebar prop
+      />
 
-      {/* Main Content */}
-      <div className="flex-1 ml-64">
-        {/* Top Navbar */}
-        <div className="fixed top-0 left-64 right-0 z-10">
-          <H_TopNavbar />
-        </div>
+      {/* Fixed Top Navbar */}
+      <H_TopNavbar
+        sidebarOpen={sidebarOpen}  // Changed from isCollapsed to sidebarOpen
+        onMenuClick={toggleSidebar}
+        darkMode={darkMode}
+        toggleTheme={toggleTheme}
+      />
 
-        {/* Page Content */}
-        <main className="p-6 mt-16">{children}</main>
-      </div>
+      {/* Content area offset by sidebar width + topbar height */}
+      <main
+        className="p-6 transition-all duration-300"
+        style={{
+          marginLeft: sidebarOpen ? SIDEBAR_EXPANDED_WIDTH : SIDEBAR_COLLAPSED_WIDTH,
+          marginTop: TOPBAR_HEIGHT,
+        }}
+      >
+        <Outlet />
+      </main>
     </div>
   );
 };
