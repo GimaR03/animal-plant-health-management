@@ -1,90 +1,101 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { useTheme } from "../H_contexts/H_ThemeContext";
+import { useLanguage } from "../H_contexts/H_LanguageContext.js";
+import { useTheme } from "../H_contexts/H_ThemeContext.js";
 
-// ✅ Import images from the same folder
-import Logo from "./logoFram.png";
-import HomeIcon from "./Home.png";
-import FertiliserIcon from "./stock.png";
-import DetailsIcon from "./details.png";
-import HelpIcon from "./help.png";
-import ProfileIcon from "./profile.png";
-
-const PlantPathologistNavBar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
-  const { theme } = useTheme();
+const PlantPathologistTopNavBar = ({ onMenuClick, isCollapsed }) => {
+  const { language, toggleLanguage } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
   const darkMode = theme === "dark";
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
 
-  const navItems = [
-    { to: "/plant-pathologist/home", label: "Home", icon: HomeIcon },
-    { to: "/plant-pathologist/fertiliser-stock", label: "Fertiliser Stock", icon: FertiliserIcon },
-    { to: "/plant-pathologist/fertiliser-details", label: "Fertiliser Details", icon: DetailsIcon },
-    { to: "/plant-pathologist/help", label: "Additional Help", icon: HelpIcon },
-    { to: "/plant-pathologist/profile", label: "Profile", icon: ProfileIcon },
-  ];
+  const leftOffset = isCollapsed ? 80 : 256; // px
 
   return (
-    <>
-      {/* Mobile Toggle Button */}
-      <button
-        className="md:hidden fixed top-4 left-4 z-50 bg-[var(--button-bg)] text-white p-2 rounded-md hover:bg-[var(--button-hover)] transition"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        <i className={`fas ${isOpen ? "fa-times" : "fa-bars"}`}></i>
-      </button>
+    <header
+      className={`${darkMode ? "bg-green-900 border-b border-green-700 shadow-md" : "bg-green-800 border-b border-green-600 shadow-sm"}
+        fixed top-0 right-0 h-16 flex items-center px-4 z-30 w-auto`}
+      style={{ left: leftOffset }}
+    >
+      <div className="flex items-center justify-between w-full">
+        {/* Left: menu + title */}
+        <div className="flex items-center">
+          <button
+            onClick={onMenuClick}
+            className="p-2 text-white hover:bg-green-700 rounded-md transition"
+            title="Toggle menu"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+          <h2 className="ml-3 text-xl font-semibold text-white">Plant Pathologist Panel</h2>
+        </div>
 
-      {/* Sidebar */}
-      <nav
-        className={`w-64 min-h-screen p-4 fixed top-0 left-0 transform transition-transform duration-300 ease-in-out z-40 flex flex-col justify-between ${
-          darkMode ? "bg-green-900" : "bg-green-800"
-        } ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 shadow-lg`}
-      >
-        <div>
-          {/* Logo & Title */}
-          <div className="flex flex-col items-center mb-6">
-            <img src={Logo} alt="Logo" className="w-16 h-16 rounded-full mb-2" />
-            <h2 className="text-xl text-white text-center">
-              <span className="font-bold">Mount Olive</span> <span>Farm House</span>
-            </h2>
-          </div>
+        {/* Right: language, theme, user */}
+        <div className="flex items-center space-x-3">
+          <button
+            onClick={toggleLanguage}
+            className="p-2 text-white hover:bg-green-700 rounded-md transition flex items-center space-x-2"
+            title="Toggle language"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3c3.866 0 7 3.582 7 8s-3.134 8-7 8-7-3.582-7-8 3.134-8 7-8z"/>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.6 9h16.8M3.6 15h16.8M12 3c1.5 2 2.4 5.333 2.4 8s-.9 6-2.4 8c-1.5-2-2.4-5.333-2.4-8s.9-6 2.4-8z"/>
+            </svg>
+            <span className="text-white">{language === "en" ? "English" : "Spanish"}</span>
+          </button>
 
-          {/* Nav Items */}
-          <ul className="space-y-2">
-            {navItems.map((item) => (
-              <li key={item.to}>
-                <Link
-                  to={item.to}
-                  className={`flex items-center space-x-3 py-2 px-4 rounded-md transition-colors ${
-                    location.pathname === item.to
-                      ? "bg-[var(--button-bg)] text-white"
-                      : "text-white hover:bg-[var(--button-hover)] hover:text-green-100"
-                  }`}
+          <button
+            onClick={toggleTheme}
+            className="p-2 text-white hover:bg-green-700 rounded-md transition"
+            title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+          >
+            {darkMode ? (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 2a1 1 0 011 1v2a1 1 0 11-2 0V3a1 1 0 011-1zm0 13a5 5 0 100-10 5 5 0 000 10zm8-6a1 1 0 100-2h-2a1 1 0 100 2h2zM4 9a1 1 0 100-2H2a1 1 0 100 2h2zm11.657 6.657a1 1 0 10-1.414-1.414l-1.414 1.414a1 1 0 001.414 1.414l1.414-1.414zM6.171 6.171a1 1 0 10-1.414-1.414L3.343 6.171a1 1 0 101.414 1.414l1.414-1.414z"/>
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M17.293 13.293A8 8 0 016.707 2.707 8.003 8.003 0 1017.293 13.293z"/>
+              </svg>
+            )}
+          </button>
+
+          <div className="relative">
+            <button
+              onClick={() => setUserMenuOpen((v) => !v)}
+              className="flex items-center space-x-2 p-2 text-white hover:bg-green-700 rounded-md transition"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 10a4 4 0 100-8 4 4 0 000 8zm-7 8a7 7 0 1114 0H3z"/>
+              </svg>
+              <span>Pathologist</span>
+              <svg xmlns="http://www.w3.org/2000/svg" className={`h-3 w-3 transform transition ${userMenuOpen ? "rotate-180" : ""}`} fill="currentColor" viewBox="0 0 20 20">
+                <path d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 011.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"/>
+              </svg>
+            </button>
+            {userMenuOpen && (
+              <div
+                className={`absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 z-50 ${
+                  darkMode ? "bg-green-800 border border-green-700" : "bg-green-700 border border-green-600"
+                }`}
+              >
+                <button
+                  className="block px-4 py-2 text-sm w-full text-left text-white hover:bg-green-600 transition"
+                  onClick={() => {
+                    localStorage.clear();
+                    window.location.href = "/";
+                  }}
                 >
-                  <img src={item.icon} alt={item.label} className="w-6 h-6" />
-                  <span>{item.label}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+                  Sign Out
+                </button>
+              </div>
+            )}
+          </div>
         </div>
-
-        {/* Bottom Info */}
-        <div className="text-white text-center text-sm mt-6">
-          Mount Olive Farm House v1.0 <br />
-          © 2025 Mount Olive HealthAdmin
-        </div>
-      </nav>
-
-      {/* Overlay for mobile */}
-      {isOpen && (
-        <div
-          className="md:hidden fixed inset-0 bg-black bg-opacity-50 z-30"
-          onClick={() => setIsOpen(false)}
-        ></div>
-      )}
-    </>
+      </div>
+    </header>
   );
 };
 
-export default PlantPathologistNavBar;
+export default PlantPathologistTopNavBar;
