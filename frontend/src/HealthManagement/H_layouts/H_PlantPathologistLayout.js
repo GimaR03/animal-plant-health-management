@@ -1,15 +1,31 @@
-import React from "react";
-import PlantPathologistNavBar from "../PlantPathologistPart/PlantPathologistNavBar";
-import PlantPathologistTopNavBar from "../PlantPathologistPart/PlantPathologistTopNavBar";
+import React, { useState } from "react";
+import { Outlet } from "react-router-dom";
+import PlantPathologistNavBar from "../PlantPathologistPart/PlantPathologistNavBar.js";
+import PlantPathologistTopNavBar from "../PlantPathologistPart/PlantPathologistTopNavBar.js";
 
-const PlantPathologistLayout = ({ children }) => {
+const SIDEBAR_COLLAPSED_WIDTH = 80;   // w-20
+const SIDEBAR_EXPANDED_WIDTH = 256;   // w-64
+const TOPBAR_HEIGHT = 64;             // h-16
+
+const PlantPathologistLayout = () => {
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
   return (
-    <div className="flex min-h-screen">
-      <PlantPathologistNavBar />
-      <div className="flex-1 ml-64">
-        <PlantPathologistTopNavBar />
-        <main className="p-6 mt-16">{children}</main>
-      </div>
+    <div className="min-h-screen bg-gray-50">
+      <PlantPathologistNavBar isCollapsed={isCollapsed} />
+      <PlantPathologistTopNavBar
+        isCollapsed={isCollapsed}
+        onMenuClick={() => setIsCollapsed((p) => !p)}
+      />
+      <main
+        className="p-6"
+        style={{
+          marginLeft: isCollapsed ? SIDEBAR_COLLAPSED_WIDTH : SIDEBAR_EXPANDED_WIDTH,
+          marginTop: TOPBAR_HEIGHT,
+        }}
+      >
+        <Outlet />
+      </main>
     </div>
   );
 };
