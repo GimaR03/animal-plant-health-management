@@ -2,6 +2,10 @@ import React from "react";
 import "./App.css";
 import { Routes, Route, Navigate } from "react-router-dom";
 
+// ----------------- Scroll -----------------
+import ScrollToTop from "./Components/UserHome/ScrollToTop/ScrollToTop.jsx";
+
+
 // Context Providers
 import { LanguageProvider } from './Components/HealthManagement/H_contexts/H_LanguageContext';
 import { ThemeProvider } from './Components/HealthManagement/H_contexts/H_ThemeContext';
