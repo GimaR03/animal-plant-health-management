@@ -1,5 +1,6 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import React from "react";
+import "./App.css";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 // Context Providers
 import { LanguageProvider } from './Components/HealthManagement/H_contexts/H_LanguageContext';
