@@ -17,6 +17,7 @@ import { UserProvider } from "./Components/AnimalManagement/contexts/UserContext
 import { IThemeProvider } from "./Components/InventoryManagement/Icontexts/IThemeContext.jsx";
 import { IThemeProvider } from "./Components/InventoryManagement/Icontexts/IThemeContext.jsx";
 import { ThemeProvider as PThemeProvider } from "./Components/PlantManagement/context/ThemeContext.jsx";
+import { LanguageProvider as PLanguageProvider } from "./Components/PlantManagement/context/LanguageContext.jsx";
 
 
 
