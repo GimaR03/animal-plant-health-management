@@ -15,3 +15,4 @@ import { LoaderProvider } from "./Components/AnimalManagement/contexts/LoaderCon
 import { ThemeProvider as AnimalThemeProvider } from "./Components/AnimalManagement/contexts/ThemeContext.js";
 import { UserProvider } from "./Components/AnimalManagement/contexts/UserContext.js";
 import { IThemeProvider } from "./Components/InventoryManagement/Icontexts/IThemeContext.jsx";
+import { IThemeProvider } from "./Components/InventoryManagement/Icontexts/IThemeContext.jsx";
