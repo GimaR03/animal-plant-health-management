@@ -42,3 +42,15 @@ onst AboutUs = () => {
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
   const [cartItems] = useState([]);
+// Preload images
+  useEffect(() => {
+    slides.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    document.title = "About | Mount Olive Farm";
+  }, []);
