@@ -16,3 +16,41 @@ import { ThemeProvider as AnimalThemeProvider } from "./Components/AnimalManagem
 import { UserProvider } from "./Components/AnimalManagement/contexts/UserContext.js";
 import { IThemeProvider } from "./Components/InventoryManagement/Icontexts/IThemeContext.jsx";
 import { IThemeProvider } from "./Components/InventoryManagement/Icontexts/IThemeContext.jsx";
+import { ThemeProvider as PThemeProvider } from "./Components/PlantManagement/context/ThemeContext.jsx";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
