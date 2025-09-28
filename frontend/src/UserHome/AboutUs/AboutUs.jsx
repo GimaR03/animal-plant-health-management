@@ -37,3 +37,8 @@ onst AboutUs = () => {
     document.querySelectorAll(".animate-on-scroll").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
+   // Hero slideshow
+  const slides = [hero1, hero2, hero3, hero4];
+  const [current, setCurrent] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [cartItems] = useState([]);
