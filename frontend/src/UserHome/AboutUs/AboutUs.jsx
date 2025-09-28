@@ -54,3 +54,4 @@ onst AboutUs = () => {
   useEffect(() => {
     document.title = "About | Mount Olive Farm";
   }, []);
+ // Auto-rotate
