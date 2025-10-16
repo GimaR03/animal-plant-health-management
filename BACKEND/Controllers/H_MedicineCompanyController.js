@@ -1,10 +1,9 @@
-const H_MedicineCompany = require("../Model/H_MedicineCompanyModel");
+// BACKEND/HealthManagement/Controllers/H_MedicineCompanyController.js
+import H_MedicineCompany from "../Model/H_MedicineCompanyModel.js";
 
-// Create
-exports.addCompany = async (req, res) => {
+export const addCompany = async (req, res) => {
   try {
-    const data = req.body;
-    const company = await H_MedicineCompany.create(data);
+    const company = await H_MedicineCompany.create(req.body);
     res.status(201).json({ message: "Company added", company });
   } catch (err) {
     console.error("addCompany error:", err);
@@ -12,8 +11,7 @@ exports.addCompany = async (req, res) => {
   }
 };
 
-// Get All
-exports.getAllCompanies = async (req, res) => {
+export const getAllCompanies = async (req, res) => {
   try {
     const companies = await H_MedicineCompany.find();
     res.json(companies);
@@ -22,8 +20,7 @@ exports.getAllCompanies = async (req, res) => {
   }
 };
 
-// Get by ID
-exports.getCompanyById = async (req, res) => {
+export const getCompanyById = async (req, res) => {
   try {
     const company = await H_MedicineCompany.findById(req.params.id);
     if (!company) return res.status(404).json({ error: "Company not found" });
@@ -33,8 +30,7 @@ exports.getCompanyById = async (req, res) => {
   }
 };
 
-// Update
-exports.updateCompany = async (req, res) => {
+export const updateCompany = async (req, res) => {
   try {
     const updated = await H_MedicineCompany.findByIdAndUpdate(
       req.params.id,
@@ -48,8 +44,7 @@ exports.updateCompany = async (req, res) => {
   }
 };
 
-// Delete
-exports.deleteCompany = async (req, res) => {
+export const deleteCompany = async (req, res) => {
   try {
     const deleted = await H_MedicineCompany.findByIdAndDelete(req.params.id);
     if (!deleted) return res.status(404).json({ error: "Company not found" });
