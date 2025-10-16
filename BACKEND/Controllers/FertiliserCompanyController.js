@@ -1,7 +1,7 @@
-const FertiliserCompany = require("../Model/FertiliserCompany");
+// BACKEND/HealthManagement/Controllers/FertiliserCompanyController.js
+import FertiliserCompany from "../Model/FertiliserCompany.js";
 
-// Get all companies
-exports.getAllCompanies = async (req, res) => {
+export const getAllCompanies = async (req, res) => {
   try {
     const companies = await FertiliserCompany.find();
     res.json(companies);
@@ -10,8 +10,7 @@ exports.getAllCompanies = async (req, res) => {
   }
 };
 
-// Add a new company
-exports.addCompany = async (req, res) => {
+export const addCompany = async (req, res) => {
   try {
     const newCompany = new FertiliserCompany(req.body);
     const saved = await newCompany.save();
@@ -21,8 +20,7 @@ exports.addCompany = async (req, res) => {
   }
 };
 
-// Update a company
-exports.updateCompany = async (req, res) => {
+export const updateCompany = async (req, res) => {
   try {
     const updated = await FertiliserCompany.findByIdAndUpdate(
       req.params.id,
@@ -35,11 +33,10 @@ exports.updateCompany = async (req, res) => {
   }
 };
 
-// Delete a company
-exports.deleteCompany = async (req, res) => {
+export const deleteCompany = async (req, res) => {
   try {
     await FertiliserCompany.findByIdAndDelete(req.params.id);
-    res.json({ message: "Company deleted" });
+    res.json({ message: "Company deleted successfully" });
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
