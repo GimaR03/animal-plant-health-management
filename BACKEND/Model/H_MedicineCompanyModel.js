@@ -1,16 +1,17 @@
-const mongoose = require("mongoose");
+// BACKEND/HealthManagement/Model/H_MedicineCompanyModel.js
+import mongoose from "mongoose";
 
-const H_MedicineCompanySchema = new mongoose.Schema(
+const medicineCompanySchema = new mongoose.Schema(
   {
     companyName: { type: String, required: true },
-    registrationNumber: { type: String, required: true, unique: true },
-    address: { type: String, required: true },
-    contactNo: { type: String, required: true },
-    emergencyContacts: { type: [String], default: [] },
-    email: { type: String, required: true, match: [/^\S+@\S+\.\S+$/, "Invalid email"] },
+    registrationNumber: { type: String, required: true },
+    address: { type: String },
+    contactNo: { type: String },
+    emergencyContacts: [{ type: String }], // array of strings
+    email: { type: String },
     website: { type: String },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("H_MedicineCompany", H_MedicineCompanySchema);
+export default mongoose.model("H_MedicineCompany", medicineCompanySchema);
