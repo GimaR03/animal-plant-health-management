@@ -1,9 +1,14 @@
-const mongoose = require("mongoose");
+// BACKEND/HealthManagement/Model/FertiliserCompany.js
+import mongoose from "mongoose";
 
-const FertiliserCompanySchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  contact: { type: String, required: true },
-  email: { type: String, required: true },
-});
+const fertiliserCompanySchema = new mongoose.Schema(
+  {
+    name: { type: String, required: true },
+    contact: { type: String }, // match React form
+    email: { type: String },
+    country: { type: String },
+  },
+  { timestamps: true }
+);
 
-module.exports = mongoose.model("FertiliserCompany", FertiliserCompanySchema);
+export default mongoose.model("FertiliserCompany", fertiliserCompanySchema);
