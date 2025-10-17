@@ -1,14 +1,16 @@
-const mongoose = require("mongoose");
+// HealthManagement/Model/H_Fertiliser.js
+import mongoose from "mongoose";
 
-const FertiliserSchema = new mongoose.Schema(
+const fertiliserSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
-    type: { type: String, required: true },
+    type: { type: String, required: true }, // Organic / Chemical
+    company: { type: String },
     currentStock: { type: Number, required: true },
-    unit: { type: String, required: true },
-    supplierName: { type: String, required: true },
-    supplierContact: { type: String, required: true },
-    email: { type: String, required: true },
+    unit: { type: String, required: true }, // e.g., kg, liter, g, gal, bag, l
+    supplierName: { type: String },
+    supplierContact: { type: String },
+    email: { type: String },
     purchasePrice: { type: Number, required: true },
     purchaseDate: { type: Date, required: true },
     storageLocation: { type: String },
@@ -18,4 +20,4 @@ const FertiliserSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Fertiliser", FertiliserSchema);
+export default mongoose.model("Fertiliser", fertiliserSchema);
