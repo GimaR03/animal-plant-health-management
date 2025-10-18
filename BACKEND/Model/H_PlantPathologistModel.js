@@ -1,16 +1,20 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const PlantPathologistSchema = new mongoose.Schema({
-  fullName: { type: String, required: true },
-  email: { type: String, required: true },
-  phoneNo: { type: String, required: true },
-  licenseNumber: { type: String, required: true },
-  specializations: { type: [String], required: true },
-  qualifications: { type: String, required: true },
-  yearsOfExperience: { type: Number, required: true },
-  dateOfBirth: { type: Date },
-  gender: { type: String },
-  profilePhoto: { type: String },
-}, { timestamps: true });
+const plantPathologistSchema = new mongoose.Schema(
+  {
+    fullName: { type: String, required: true },
+    email: { type: String, unique: true, required: true },
+    phoneNo: { type: String },
+    licenseNumber: { type: String, required: true },
+    specializations: { type: [String], default: [] },
+    qualifications: { type: String },
+    yearsOfExperience: { type: Number, default: 0 },
+    dateOfBirth: { type: Date },
+    gender: { type: String, enum: ["Male", "Female", "Other"] },
+    profilePhoto: { type: String },
+  },
+  { timestamps: true }
+);
 
-module.exports = mongoose.model("PlantPathologist", PlantPathologistSchema);
+export default mongoose.model("PlantPathologist", plantPathologistSchema);
+
