@@ -1,37 +1,60 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const generateSpecialistId = () => {
-  const prefix = "SPC";
-  const randomNum = Math.floor(10000 + Math.random() * 90000); // 5-digit
-  return `${prefix}${randomNum}`;
-};
-
-const HealthSpecialistSchema = new mongoose.Schema(
+const healthSpecialistSchema = new mongoose.Schema(
   {
-    specialistId: {
+    fullName: {
       type: String,
-      unique: true,
-      default: generateSpecialistId,
+      required: [true, "Full name is required"],
+      trim: true,
     },
-    fullName: { type: String, required: true },
     email: {
       type: String,
-      required: true,
+      required: [true, "Email is required"],
       unique: true,
-      match: [/^\S+@\S+\.\S+$/, "Please enter a valid email"],
+      lowercase: true,
+      trim: true,
     },
-    password: { type: String, required: true },
-    phoneNo: { type: String, required: true },
-    medicalLicenseNumber: { type: String, required: true, unique: true },
-    address: { type: String, required: true },
-    specializations: { type: [String], required: true },
-    qualifications: { type: String, required: true },
-    yearsOfExperience: { type: Number, required: true, min: 0 },
-    dateOfBirth: { type: Date, required: true },
-    gender: { type: String, enum: ["Male", "Female", "Other"], required: true },
-    profilePhoto: { type: String, required: true }, // filename only
+    password: {
+      type: String,
+      required: [true, "Password is required"],
+    },
+    phoneNo: {
+      type: String,
+      trim: true,
+    },
+    medicalLicenseNumber: {
+      type: String,
+      trim: true,
+    },
+    address: {
+      type: String,
+      trim: true,
+    },
+    specializations: {
+      type: [String],
+      default: [],
+    },
+    qualifications: {
+      type: String,
+      trim: true,
+    },
+    yearsOfExperience: {
+      type: Number,
+      default: 0,
+      min: [0, "Years of experience cannot be negative"],
+    },
+    dateOfBirth: {
+      type: Date,
+    },
+    gender: {
+      type: String,
+      enum: ["Male", "Female", "Other"],
+    },
+    profilePhoto: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("HealthSpecialist", HealthSpecialistSchema);
+export default mongoose.model("HealthSpecialist", healthSpecialistSchema);
