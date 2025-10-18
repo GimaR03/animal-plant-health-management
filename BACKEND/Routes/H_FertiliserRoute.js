@@ -1,12 +1,20 @@
-const express = require("express");
+import express from "express";
+import {
+  getFertilisers,
+  getFertiliserById,
+  createFertiliser,
+  updateFertiliser,
+  deleteFertiliser,
+  decreaseFertiliserStock
+} from "../Controllers/H_FertiliserController.js";
+
 const router = express.Router();
-const fertiliserController = require("../Controllers/H_FertiliserController");
 
-// CRUD
-router.get("/", fertiliserController.getFertilisers);
-router.get("/:id", fertiliserController.getFertiliserById);
-router.post("/", fertiliserController.createFertiliser);
-router.put("/:id", fertiliserController.updateFertiliser);
-router.delete("/:id", fertiliserController.deleteFertiliser);
+router.get("/", getFertilisers);
+router.get("/:id", getFertiliserById);
+router.post("/", createFertiliser);
+router.put("/:id", updateFertiliser);
+router.delete("/:id", deleteFertiliser);
+router.post("/decrease-stock", decreaseFertiliserStock);
 
-module.exports = router;
+export default router;
