@@ -1,15 +1,17 @@
-// routes/fertiliserCompanyRoutes.js
-const express = require("express");
-const router = express.Router();
-const {
+// BACKEND/HealthManagement/Routes/fertiliserCompanyRoutes.js
+import express from "express";
+import {
   getAllCompanies,
   addCompany,
-} = require("../Controllers/FertiliserCompanyController");
+  updateCompany,
+  deleteCompany,
+} from "../Controllers/FertiliserCompanyController.js";
 
-// GET all companies
+const router = express.Router();
+
 router.get("/", getAllCompanies);
-
-// POST new company
 router.post("/", addCompany);
+router.put("/:id", updateCompany);
+router.delete("/:id", deleteCompany);
 
-module.exports = router;
+export default router;
