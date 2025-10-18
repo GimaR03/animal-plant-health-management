@@ -1,13 +1,24 @@
-// BACKEND/Routes/H_mediStoreRoute.js
-const express = require("express");
+import express from "express";
+import {
+  addMedicine,
+  getMedicines,
+  getMedicineById,
+  updateMedicine,
+  deleteMedicine,
+  decreaseMedicineQuantity,
+  decreaseMultipleMedicines
+} from "../Controllers/H_MediStoreController.js";
+
 const router = express.Router();
-const H_MediStoreController = require("../Controllers/H_MediStoreController");
 
-// Routes
-router.post("/", H_MediStoreController.addMedicine);
-router.get("/", H_MediStoreController.getMedicines);
-router.get("/:id", H_MediStoreController.getMedicineById);
-router.put("/:id", H_MediStoreController.updateMedicine);
-router.delete("/:id", H_MediStoreController.deleteMedicine);
+router.get("/", getMedicines);
+router.get("/:id", getMedicineById);
+router.post("/", addMedicine);
+router.put("/:id", updateMedicine);
+router.delete("/:id", deleteMedicine);
 
-module.exports = router;
+// New routes for decreasing medicine quantities
+router.patch("/decrease-quantity", decreaseMedicineQuantity);
+router.patch("/decrease-multiple", decreaseMultipleMedicines);
+
+export default router;
