@@ -7,7 +7,7 @@ const medicineCompanySchema = new mongoose.Schema(
     registrationNumber: { type: String, required: true },
     address: { type: String },
     contactNo: { type: String },
-    emergencyContacts: [{ type: String }], // array of strings
+    emergencyContacts: [{ type: String }], 
     email: { type: String },
     website: { type: String },
   },
