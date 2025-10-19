@@ -7,7 +7,7 @@ const fertiliserSchema = new mongoose.Schema(
     type: { type: String, required: true }, // Organic / Chemical
     company: { type: String },
     currentStock: { type: Number, required: true },
-    unit: { type: String, required: true }, // e.g., kg, liter, g, gal, bag, l
+    unit: { type: String, required: true }, 
     supplierName: { type: String },
     supplierContact: { type: String },
     email: { type: String },
