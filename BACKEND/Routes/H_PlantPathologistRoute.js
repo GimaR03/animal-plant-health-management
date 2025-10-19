@@ -1,20 +1,16 @@
-const express = require("express");
+import express from "express";
+import multer from "multer";
+import { getAll, getOne, create, update, del } from "../Controllers/H_PlantPathologistController.js";
+
 const router = express.Router();
-const controller = require("../Controllers/H_PlantPathologistController");
-const multer = require("multer");
-const path = require("path");
 
-// File upload setup
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, "Health_uploads/"),
-  filename: (req, file, cb) => cb(null, Date.now() + path.extname(file.originalname)),
-});
-const upload = multer({ storage });
+// Make sure this folder exists
+const upload = multer({ dest: "HealthManagement/Health_uploads/" });
 
-// Routes
-router.get("/", controller.getAll);
-router.post("/", upload.single("profilePhoto"), controller.create);
-router.put("/:id", upload.single("profilePhoto"), controller.update);
-router.delete("/:id", controller.delete);
+router.get("/", getAll);
+router.get("/:id", getOne); // required for edit flow
+router.post("/", upload.single("profilePhoto"), create);
+router.put("/:id", upload.single("profilePhoto"), update);
+router.delete("/:id", del);
 
-module.exports = router;
+export default router;
