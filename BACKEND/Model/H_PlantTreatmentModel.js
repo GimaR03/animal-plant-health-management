@@ -8,7 +8,7 @@ const H_PlantTreatmentSchema = new mongoose.Schema({
   pestControl: { type: String },
   treatmentDate: { type: Date, required: true },
   notes: { type: String },
-  reports: { type: String }, // stored path like "/uploads/1234-abc.pdf"
+  reports: { type: String }, 
   status: {
     type: String,
     enum: ["scheduled", "in-progress", "completed"],
