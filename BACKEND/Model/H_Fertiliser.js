@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 const fertiliserSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
-    type: { type: String, required: true }, // Organic / Chemical
+    type: { type: String, required: true }, 
     company: { type: String },
     currentStock: { type: Number, required: true },
     unit: { type: String, required: true }, 
