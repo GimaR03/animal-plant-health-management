@@ -4,7 +4,7 @@ import { getAll, getOne, create, update, del } from "../Controllers/H_PlantPatho
 
 const router = express.Router();
 
-// Make sure this folder exists
+
 const upload = multer({ dest: "HealthManagement/Health_uploads/" });
 
 router.get("/", getAll);
