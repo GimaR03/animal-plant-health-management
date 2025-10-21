@@ -11,7 +11,7 @@ const DoctorDetailsSchema = new mongoose.Schema(
     yearsOfExperience: { type: Number, default: 0 },
     dateOfBirth: { type: Date },
     gender: { type: String, enum: ["Male", "Female", "Other"], default: "Male" },
-    profilePhoto: { type: String, default: null }, // store filename only
+    profilePhoto: { type: String, default: null }, 
     password: { type: String },
   },
   { timestamps: true }
