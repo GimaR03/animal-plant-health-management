@@ -251,7 +251,7 @@ const H_PlantPathologist = () => {
     }
   };
 
-  // Download as CSV
+  // Download as CSV type
   const downloadCSV = () => {
     try {
       const dataToExport = filteredEntries;
