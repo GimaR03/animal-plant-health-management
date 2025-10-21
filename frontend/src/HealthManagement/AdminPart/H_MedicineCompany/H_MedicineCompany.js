@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import H_MedicineCompanyForm from "./H_MedicineCompanyForm.js";
 
-// React Icons
+// React Icons import
 import { FaWhatsapp } from "react-icons/fa";
 import { FiMail, FiEdit2, FiTrash2 } from "react-icons/fi";
 
