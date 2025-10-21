@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
+//doctor detatils update form
+
 function DoctorUpdate({ doctor, onClose, onUpdate }) {
   const [formData, setFormData] = useState({
     fullName: "",
