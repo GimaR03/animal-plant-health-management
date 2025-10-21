@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 const fertiliserCompanySchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
-    contact: { type: String }, // match React form
+    contact: { type: String }, 
     email: { type: String },
     country: { type: String },
   },
