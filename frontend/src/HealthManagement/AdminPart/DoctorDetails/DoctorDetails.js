@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import DoctorForm from "./DoctorForm.js";
+//doctor details display page
 
 // React Icons (replacing PNGs)
 import { FaWhatsapp } from "react-icons/fa";
