@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+//doctor add form
 function DoctorAdd({ onClose, onAdd }) {
   const [formData, setFormData] = useState({
     fullName: "",
