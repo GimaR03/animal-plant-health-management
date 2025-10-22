@@ -22,4 +22,5 @@ const DoctorDetailsSchema = new mongoose.Schema(
 
 // Create a model (collection) based on the schema
 const DoctorDetails = mongoose.model("DoctorDetails", DoctorDetailsSchema);
+// Export the model to use it in routes or controllers
 export default DoctorDetails;
