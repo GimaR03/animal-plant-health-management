@@ -1,5 +1,5 @@
 import DoctorDetails from "../Model/DoctorDetailsModel.js";
-import bcrypt from "bcrypt";
+import bcrypt from "bcrypt"; // Import bcrypt for password hashing
 
 function parseSpecializations(input) {
   if (Array.isArray(input)) return input;
