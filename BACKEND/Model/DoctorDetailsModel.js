@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 // Import the Mongoose library for MongoDB object modeling
 
+
+// Define the schema (structure) for storing doctor details in MongoDB
 const DoctorDetailsSchema = new mongoose.Schema(
   {
     fullName: { type: String, required: true, trim: true },
