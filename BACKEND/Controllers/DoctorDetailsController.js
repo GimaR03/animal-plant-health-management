@@ -29,6 +29,7 @@ function parseSpecializations(input) {
 /* ---------------------- Create a New Doctor ---------------------- */
 export const createDoctor = async (req, res) => {
   try {
+    // Validate that form data exists
     if (!req.body) {
       return res.status(400).json({ message: "No form data received." });
     }
