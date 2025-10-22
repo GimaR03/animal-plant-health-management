@@ -34,6 +34,7 @@ export const createDoctor = async (req, res) => {
       return res.status(400).json({ message: "No form data received." });
     }
 
+     // Destructure and set defaults for fields from the request body
     const {
       fullName = "",
       email = "",
