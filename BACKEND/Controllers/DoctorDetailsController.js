@@ -26,7 +26,7 @@ function parseSpecializations(input) {
   return [];
 }
 
-// Create Doctor
+/* ---------------------- Create a New Doctor ---------------------- */
 export const createDoctor = async (req, res) => {
   try {
     if (!req.body) {
