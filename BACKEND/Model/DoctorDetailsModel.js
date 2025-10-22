@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+// Import the Mongoose library for MongoDB object modeling
 
 const DoctorDetailsSchema = new mongoose.Schema(
   {
