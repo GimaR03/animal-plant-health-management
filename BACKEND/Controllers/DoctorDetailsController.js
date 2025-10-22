@@ -17,6 +17,7 @@ function parseSpecializations(input) {
       // Try parsing as JSON (e.g., '["Cardiology", "Pediatrics"]')
       const parsed = JSON.parse(txt);
       if (Array.isArray(parsed)) {
+        // Clean and return only valid strings
         return parsed.map((s) => String(s).trim()).filter(Boolean);
       }
     } catch (_) {}
