@@ -1,6 +1,13 @@
 import DoctorDetails from "../Model/DoctorDetailsModel.js";
 import bcrypt from "bcrypt"; // Import bcrypt for password hashing
 
+/* ---------------------- Helper Function ---------------------- */
+/**
+ * Converts the 'specializations' input into a clean array.
+ * Handles different possible input formats: string, JSON array, or array.
+ */
+
+
 function parseSpecializations(input) {
   if (Array.isArray(input)) return input;
   if (typeof input === "string") {
