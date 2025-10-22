@@ -20,5 +20,6 @@ const DoctorDetailsSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+// Create a model (collection) based on the schema
 const DoctorDetails = mongoose.model("DoctorDetails", DoctorDetailsSchema);
 export default DoctorDetails;
