@@ -9,7 +9,7 @@ import bcrypt from "bcrypt"; // Import bcrypt for password hashing
 
 
 function parseSpecializations(input) {
-  if (Array.isArray(input)) return input;
+  if (Array.isArray(input)) return input;  // If already an array, return as is
   if (typeof input === "string") {
     const txt = input.trim();
     if (!txt) return [];
