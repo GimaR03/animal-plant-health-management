@@ -9,7 +9,7 @@ const fertiliserCompanySchema = new mongoose.Schema(
     email: { type: String },
     country: { type: String },
   },
-  { timestamps: true }
+  { timestamps: true }   // Automatically adds createdAt and updatedAt timestamps
 );
 
 export default mongoose.model("FertiliserCompany", fertiliserCompanySchema);
