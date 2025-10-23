@@ -18,6 +18,7 @@ function DoctorAdd({ onClose, onAdd }) {
     gender: "",
     password: ""
   });
+    // useState hook to store the uploaded profile photo
   const [profilePhoto, setProfilePhoto] = useState(null);
 
   const handleChange = (e) => {
