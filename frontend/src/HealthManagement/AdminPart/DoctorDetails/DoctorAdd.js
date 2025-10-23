@@ -1,7 +1,9 @@
+// Import necessary libraries
 import React, { useState } from "react";
 import axios from "axios";
 
 //doctor add form
+ // useState hook to store form input values
 function DoctorAdd({ onClose, onAdd }) {
   const [formData, setFormData] = useState({
     fullName: "",
