@@ -34,7 +34,7 @@ function DoctorAdd({ onClose, onAdd }) {
     e.preventDefault();
 
     try {
-        // Create a new FormData object to send data including files
+      // Create a new FormData object to send data including files
       const data = new FormData();
       Object.keys(formData).forEach((key) => {
         if (key === "specializations") {
@@ -60,6 +60,7 @@ function DoctorAdd({ onClose, onAdd }) {
     }
   };
 
+   // JSX: Form UI structure
   return (
     <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-lg shadow-xl max-w-lg w-full p-6">
