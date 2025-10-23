@@ -64,6 +64,8 @@ const DoctorDetails = () => {
     return `${API_BASE}/Health_Uploads/${filename}`;
   };
 
+    // -------------------- FETCH DOCTOR DATA --------------------
+  // Fetch doctor records from backend API
   const fetchDoctors = async () => {
     try {
       setLoading(true);
