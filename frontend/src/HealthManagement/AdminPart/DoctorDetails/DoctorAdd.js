@@ -34,6 +34,7 @@ function DoctorAdd({ onClose, onAdd }) {
     e.preventDefault();
 
     try {
+        // Create a new FormData object to send data including files
       const data = new FormData();
       Object.keys(formData).forEach((key) => {
         if (key === "specializations") {
