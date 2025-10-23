@@ -14,6 +14,7 @@ import med2 from "../../../UserHome/Images/medistock2.jpg";
 import med3 from "../../../UserHome/Images/medistock3.webp";
 import med4 from "../../../UserHome/Images/medistore5.webp";
 
+// Base URL for backend API
 const API_BASE = "http://localhost:5000";
 
 const DoctorDetails = () => {
