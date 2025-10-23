@@ -288,6 +288,7 @@ const DoctorDetails = () => {
     }
   };
 
+   // -------------------- CSV EXPORT --------------------
   // Download as CSV
   const downloadCSV = () => {
     try {
