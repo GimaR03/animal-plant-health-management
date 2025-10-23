@@ -21,6 +21,7 @@ function DoctorAdd({ onClose, onAdd }) {
     // useState hook to store the uploaded profile photo
   const [profilePhoto, setProfilePhoto] = useState(null);
 
+   // Handle input changes for text, email, number, etc.
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
