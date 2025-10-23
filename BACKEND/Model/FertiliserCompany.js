@@ -1,6 +1,7 @@
 // BACKEND/HealthManagement/Model/FertiliserCompany.js
 import mongoose from "mongoose";  // Import mongoose library for defining schema and interacting with MongoDB
 
+// Each document in this collection represents a fertiliser company
 const fertiliserCompanySchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
