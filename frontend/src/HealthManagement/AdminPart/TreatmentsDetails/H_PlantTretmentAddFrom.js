@@ -31,6 +31,8 @@ const H_PlantTretmentAddFrom = () => {
    // Data fetched from backend
   const [pathologists, setPathologists] = useState([]);
   const [fertilisers, setFertilisers] = useState([]);
+  
+    // UI state
   const [loading, setLoading] = useState(false);
   const [stockUpdateMessage, setStockUpdateMessage] = useState("");
   const navigate = useNavigate();
