@@ -28,6 +28,7 @@ const H_PlantTretmentAddFrom = () => {
     effectiveness: 0,
   });
 
+   // Data fetched from backend
   const [pathologists, setPathologists] = useState([]);
   const [fertilisers, setFertilisers] = useState([]);
   const [loading, setLoading] = useState(false);
