@@ -7,6 +7,7 @@ import H_PlantPathologistForm from "./H_PlantPathologistForm.js";
 import { FaWhatsapp } from "react-icons/fa";
 import { FiMail, FiEdit2, FiTrash2 } from "react-icons/fi";
 
+// Import slideshow images for page header
 import hp1 from "../../../UserHome/Images/healthPlant1.webp";
 import hp4 from "../../../UserHome/Images/healthplanat4.jpg";
 import hp3 from "../../../UserHome/Images/healthplanat3.webp";
