@@ -6,6 +6,7 @@ import axios from "axios";
 const API_BASE = "http://localhost:5000";
 
 const DoctorForm = ({ doctorId, onSuccess, onCancel }) => {
+  // Form state for doctor data
   const [doctorData, setDoctorData] = useState({
     fullName: "",
     email: "",
@@ -18,6 +19,7 @@ const DoctorForm = ({ doctorId, onSuccess, onCancel }) => {
     gender: "Male",
     profilePhoto: null,
   });
+   // State for tracking form submission
   const [submitting, setSubmitting] = useState(false);
   const [errMsg, setErrMsg] = useState("");
 
