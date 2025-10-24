@@ -27,6 +27,7 @@ const DoctorForm = ({ doctorId, onSuccess, onCancel }) => {
     const loadDoctor = async () => {
       try {
         const { data } = await axios.get(`${API_BASE}/api/doctors/${doctorId}`);
+        // Populate form fields with loaded data
         setDoctorData({
           fullName: data.fullName || "",
           email: data.email || "",
