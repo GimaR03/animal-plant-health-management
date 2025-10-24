@@ -86,6 +86,7 @@ const DoctorForm = ({ doctorId, onSuccess, onCancel }) => {
         formData.append("profilePhoto", doctorData.profilePhoto);
       }
 
+      // Only append profile photo if it's a valid file
       if (doctorId) {
         await axios.put(`${API_BASE}/api/doctors/${doctorId}`, formData);
       } else {
