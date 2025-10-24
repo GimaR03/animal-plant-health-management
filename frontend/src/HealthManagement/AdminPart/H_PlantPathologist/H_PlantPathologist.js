@@ -15,6 +15,7 @@ import hp2 from "../../../UserHome/Images/healthplanat2.jpg";
 
 const API_BASE = "http://localhost:5000";
 
+// ---------- State Management ----------
 const H_PlantPathologist = () => {
   const [entries, setEntries] = useState([]);
   const [filteredEntries, setFilteredEntries] = useState([]);
