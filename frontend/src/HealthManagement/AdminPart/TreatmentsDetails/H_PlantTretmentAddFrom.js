@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const H_PlantTretmentAddFrom = () => {
+  // Default plant types (user can also add new ones)
   const [plantTypes, setPlantTypes] = useState([
     "Tomato",
     "Potato",
@@ -13,6 +14,7 @@ const H_PlantTretmentAddFrom = () => {
   ]);
   const [newPlantType, setNewPlantType] = useState("");
 
+   // Main form data state
   const [formData, setFormData] = useState({
     plantType: "",
     plantCode: "",
