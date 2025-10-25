@@ -104,4 +104,5 @@ const H_PlantPathologistForm = ({ id, onSuccess, onCancel }) => {
   );
 };
 
+// Export so it can be imported in other components/pages
 export default H_PlantPathologistForm;
