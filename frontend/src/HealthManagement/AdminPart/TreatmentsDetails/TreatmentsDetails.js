@@ -6,6 +6,7 @@ function TreatmentsDetails() {
     // React Router hook used to navigate between pages programmatically
   const navigate = useNavigate();
 
+  // Navigate to Animal Treatment Details page
   const handleViewAnimalTreatments = () => {
     navigate("/admin/H_AnimalTretmentDetils");
   };
