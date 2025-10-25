@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const H_PlantPathologistForm = ({ id, onSuccess, onCancel }) => {
+  // useState() — store form data fields
   const [data, setData] = useState({
     fullName: "",
     email: "",
@@ -16,6 +17,7 @@ const H_PlantPathologistForm = ({ id, onSuccess, onCancel }) => {
   });
 
   useEffect(() => {
+      // If 'id' exists, we are editing an existing record
     if (id) {
       axios.get(`http://localhost:5000/api/plant-pathologists/${id}`)
         .then(res => {

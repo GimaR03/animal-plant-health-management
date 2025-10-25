@@ -18,7 +18,7 @@ function TreatmentsDetails() {
   const handleAddAnimalTreatment = () => {
     navigate("/admin/H_AnimalTretmentAddFrom");
   };
-  // Navigate to Add New Plant Treatment page
+  // Navigate to Add New Plant Treatment add form
   const handleAddPlantTreatment = () => {
     navigate("/admin/H_PlantTretmentAddFrom");
   };
