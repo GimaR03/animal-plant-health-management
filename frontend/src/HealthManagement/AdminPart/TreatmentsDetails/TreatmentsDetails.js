@@ -10,7 +10,7 @@ function TreatmentsDetails() {
   const handleViewAnimalTreatments = () => {
     navigate("/admin/H_AnimalTretmentDetils");
   };
-
+  // Navigate to Plant Treatment Details page
   const handleViewPlantTreatments = () => {
     navigate("/admin/H_PlantTretmentDetils");
   };
