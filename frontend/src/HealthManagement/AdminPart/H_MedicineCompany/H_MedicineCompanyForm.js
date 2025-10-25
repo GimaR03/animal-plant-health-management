@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const H_MedicineCompanyForm = ({ companyId, onSuccess }) => {
+  // Holds all form field values
   const [form, setForm] = useState({
     companyName: "",
     registrationNumber: "",
