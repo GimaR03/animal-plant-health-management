@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 // Main Treatments Page Component
 function TreatmentsDetails() {
+    // React Router hook used to navigate between pages programmatically
   const navigate = useNavigate();
 
   const handleViewAnimalTreatments = () => {
