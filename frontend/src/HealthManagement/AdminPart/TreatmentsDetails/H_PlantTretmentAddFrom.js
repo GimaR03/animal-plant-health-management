@@ -33,7 +33,7 @@ const H_PlantTretmentAddFrom = () => {
   const [fertilisers, setFertilisers] = useState([]);
   
     // UI state
-  const [loading, setLoading] = useState(false);  // For form submission
+  const [loading, setLoading] = useState(false);  
   const [stockUpdateMessage, setStockUpdateMessage] = useState("");
   const navigate = useNavigate();
 
