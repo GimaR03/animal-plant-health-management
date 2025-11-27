@@ -84,7 +84,7 @@ const H_MedicineCompanyForm = ({ companyId, onSuccess }) => {
     setError("");
     onSuccess();
   };
-
+//get user details from local storage
   return (
     <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-lg shadow-xl max-w-lg w-full p-6">
