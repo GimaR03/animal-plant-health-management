@@ -79,7 +79,7 @@ const H_MedicineCompany = () => {
     setEditingId(company._id);
     setShowForm(true);
   };
-
+// 8️⃣ Delete confirmation dialog + API delete request
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this company?")) return;
     try {
