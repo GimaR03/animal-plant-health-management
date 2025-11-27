@@ -749,7 +749,7 @@ function H_PlantTretmentDetils() {
   }
 
   const displayRecords = filteredRecords.length > 0 ? filteredRecords : records;
-
+//get user details from local storage
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <div className="max-w-7xl mx-auto">
