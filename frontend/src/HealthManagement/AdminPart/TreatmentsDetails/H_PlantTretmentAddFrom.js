@@ -146,7 +146,7 @@ const H_PlantTretmentAddFrom = () => {
   };
 
   const selectedFertiliser = fertilisers.find((f) => f._id === formData.fertiliser);
-
+//get user details from local storage
   return (
     <div className="min-h-screen bg-gray-100 p-6 flex justify-center">
       <form
